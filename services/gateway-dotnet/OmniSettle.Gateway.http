@@ -1,0 +1,6 @@
+@OmniSettle.Gateway_HostAddress = http://localhost:5248
+
+GET {{OmniSettle.Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

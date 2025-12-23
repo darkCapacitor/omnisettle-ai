@@ -1,0 +1,32 @@
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Node / Frontend
+node_modules/
+dist/
+.angular/
+.vite/
+npm-debug.log*
+package-lock.json
+
+# .NET
+bin/
+obj/
+*.user
+*.userosscache
+*.sln.dotSettings.user
+.vs/
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+.mvn/wrapper/maven-wrapper.jar
+
+# Environment / Secrets
+.env
+.env.*
+! .env.example

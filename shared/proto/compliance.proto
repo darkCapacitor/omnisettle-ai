@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "OmniSettle.Gateway.Protos";
+option java_package = "com.omnisettle.ai.grpc";
+option java_multiple_files = true;
+
+package compliance;
+
+// The Compliance Service definition
+service ComplianceService {
+  // Validates a transaction based on regional tax and legal rules
+  rpc ValidateTransaction (TransactionRequest) returns (ValidationResponse);
+}
+
+message TransactionRequest {
+  string transaction_id = 1;
+  double amount = 2;
+  string currency = 3;
+  string destination_country = 4; // e.g., "UK", "IN", "US"
+  string seller_role = 5;         // e.g., "Merchant", "Individual"
+}
+
+message ValidationResponse {
+  bool is_compliant = 1;
+  string compliance_status = 2;   // e.g., "APPROVED", "FLAGGED", "REJECTED"
+  string ai_reasoning = 3;        // The "Thought Trace" from Gemini
+  double calculated_tax = 4;      // Tax calculated by the AI engine
+}
